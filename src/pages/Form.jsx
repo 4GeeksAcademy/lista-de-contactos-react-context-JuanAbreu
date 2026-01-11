@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import { editContact, addContact } from "./services/APIServices";
 
 export const Form = () => {
+    
+    const navigate = useNavigate()
 
     const { store, dispatch } = useGlobalReducer()
 
@@ -37,9 +39,12 @@ export const Form = () => {
         //peticion al api  para agregar o editar el contacto
         if (isEditing) {
             editContact(dispatch, contact)
+            navigate("/")
         } else {
             addContact(dispatch, contact)
+            navigate("/")
         }
+
 
     }
 

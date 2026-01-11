@@ -18,9 +18,9 @@ export const Home = () => {
 		<div className="container">
 			<div className="contacts">
 				{
-					store.contacts.map(contact => {
+					store.contacts.map(contact => (
 						<ContactCard contact={contact} key={contact.id} />
-					})
+					))
 				}
 
 			</div>
